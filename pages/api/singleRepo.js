@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-unfetch';
 export default (req, res) => {
-    fetch('https://api.github.com/repos/wunderio/internal-wunderhub/commits?per_page=5', {
+    let repo = req.query.repo_name;
+    fetch('https://api.github.com/repos/wunderio/' + repo + '/commits?per_page=5', {
         // Pass the authorization header
         headers: {
             'Authorization': 'token ' + process.env.GITHUB_TOKEN,
@@ -12,4 +13,3 @@ export default (req, res) => {
         })
         .catch(error => console.error(error));
 }
-// get url info from request -> the repo name.
