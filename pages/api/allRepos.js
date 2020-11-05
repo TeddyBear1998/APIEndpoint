@@ -11,7 +11,7 @@ export default async (req, res) => {
             break;
         }
         // Fetch the data from Github API into response variable.
-        let response = await fetch('https://api.github.com/orgs/wunderio/repos?type=all&page=' + pageNumber + '&per_page=1000', {
+        let response = await fetch('https://api.github.com/orgs/******/repos?type=all&page=' + pageNumber + '&per_page=1000', {
             // Pass the authorization header
             headers: {
                 'Authorization': 'token ' + process.env.GITHUB_TOKEN,
